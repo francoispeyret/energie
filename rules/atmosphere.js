@@ -52,7 +52,7 @@ class Atmosphere {
 
         strokeWeight(1);
         stroke(255);
-        noFill();
+        fill(15);
         rect(10, height - 100, 70, 85);
 
         textAlign(LEFT);

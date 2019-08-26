@@ -53,14 +53,14 @@ class Cellule {
 
         if(this.level > 0) {
             fill(80);
-            rect(x*this.wZoomed - width / 2 + 30, this.level*-15, 60,this.level*15+15);
+            rect(x*this.wZoomed - width / 2 + 30, this.level*-15, this.wZoomed/3,this.level*15+15);
         }
 
         if(this.hover===true) {
             stroke(255);
-            strokeWeight(1);
+            strokeWeight(2);
             noFill();
-            rect(x*this.wZoomed - width / 2 + 1, 1, this.wZoomed - 2, 39);
+            rect(x*this.wZoomed - width / 2, 1, this.wZoomed - 2, 38);
             noStroke();
         }
 

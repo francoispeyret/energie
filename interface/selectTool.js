@@ -1,6 +1,6 @@
 class SelectTool {
     constructor() {
-        this.active = true;
+        this.active = false;
         this.hover = false;
     }
 

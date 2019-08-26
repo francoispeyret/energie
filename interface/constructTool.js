@@ -1,6 +1,6 @@
 class ConstructTool {
     constructor() {
-        this.active = true;
+        this.active = false;
         this.hover = false;
 
         this.toolOptions = new ConstructToolOptions();
