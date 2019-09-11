@@ -1,5 +1,5 @@
 
-class Interface {
+class UserInterface {
 
     constructor() {
         this.selectTool = new SelectTool();
@@ -13,7 +13,7 @@ class Interface {
         this.selectTool.show();
 
         if(this.selectTool.active===true && view.zoom===true) {
-            this.heading(70,10,50,'CRAFT');
+            this.heading(70,10,50,'CONSTR');
             this.constructTool.show();
         }
 
@@ -36,7 +36,8 @@ class Interface {
         fill(30);
         strokeWeight(0.5);
         stroke(0);
-        text(word, x+5, y +12 );
+        textAlign(CENTER);
+        text(word, x+w/2, y +12 );
     }
 
     mouseMoved() {

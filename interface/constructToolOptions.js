@@ -36,8 +36,7 @@ class ConstructToolOptions {
             strokeWeight(1);
             stroke(255);
             if(opt.active===true) {
-                fill(255,
-                    90);
+                fill(255, 90);
             } else if(opt.hover===true) {
                 fill(255, 30);
             } else {
@@ -46,24 +45,18 @@ class ConstructToolOptions {
             rect(opt.p.x, opt.p.y, 50, 50);
             strokeWeight(0.5);
             fill(255);
-            text(opt.constructName, opt.p.x+5, opt.p.y+14);
+            textAlign(CENTER);
+            text(opt.constructName, opt.p.x+25, opt.p.y+14);
 
             opt.show();
         }
     }
 
     getPositionMouse(p) {
-        if(
-            mouseX > p.x &&
-            mouseX < p.x + 50 &&
-            mouseY > p.y &&
-            mouseY < p.y + 50
-        ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return  mouseX > p.x &&
+                mouseX < p.x + 50 &&
+                mouseY > p.y &&
+                mouseY < p.y + 50;
     }
 
     getHover() {
@@ -77,14 +70,18 @@ class ConstructToolOptions {
     }
 
     getActive() {
-        this.active = false;
         for(let opt of this.options) {
             if(opt.hover===true) {
+                this.cancelTools();
                 opt.active = true;
                 this.active = true;
-            } else {
-                opt.active=false;
             }
+        }
+    }
+
+    cancelTools() {
+        for(let opt of this.options) {
+            opt.active = false;
         }
     }
 

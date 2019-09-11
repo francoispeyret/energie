@@ -72,7 +72,17 @@ class ConstructTool {
         if(this.getPositionMouse()===true) {
             this.active = false;
             view.construct = false;
+            this.toolOptions.cancelTools();
             return true;
+        }
+        return false;
+    }
+
+    getToolActive() {
+        for(let tool of this.toolOptions.options) {
+            if(tool.active===true) {
+                return tool;
+            }
         }
         return false;
     }

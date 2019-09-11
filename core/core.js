@@ -1,5 +1,5 @@
 
-let interface;
+let userInterface;
 let etoiles = [];
 let terre;
 let atmosphere;
@@ -7,7 +7,7 @@ let soleil;
 let selector;
 let constructView;
 
-const debug = false;
+const debug = true;
 
 let view = {
     zoom: false,
@@ -22,7 +22,7 @@ const orbit = {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    interface = new Interface();
+    userInterface = new UserInterface();
     terre = new Terre();
     atmosphere = new Atmosphere();
     soleil = new Soleil();
@@ -72,8 +72,8 @@ function draw() {
 
     pop();
 
-    interface.show();
-    interface.update();
+    userInterface.show();
+    userInterface.update();
 
 
 }
@@ -83,14 +83,14 @@ function windowResized() {
 }
 
 function mouseMoved() {
-    interface.mouseMoved();
+    userInterface.mouseMoved();
     if(view.construct === true) {
         constructView.mouseMoved();
     }
 }
 
 function mouseReleased() {
-    interface.mouseReleased();
+    userInterface.mouseReleased();
     if(view.construct === true) {
         constructView.mouseReleased();
     }

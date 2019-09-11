@@ -23,43 +23,51 @@ class ConstructView {
     }
 
     update() {
-        let i = 0;
-
-        for(let x = selector.selectionStart; x < selector.selectionStart + round(width/4); x++) {
-            if(x < 0 && typeof terre.cellules[terre.cellulesLength + x] !== 'undefined')
-                terre.cellules[terre.cellulesLength + x].update();
-            else if(typeof terre.cellules[x] !== 'undefined')
-                terre.cellules[x].update();
-            i++;
-            if(i >= 8) { break; }
-        }
+        this.celluleFunction('update()');
     }
 
     mouseMoved() {
+        this.celluleFunction('getHover(i)');
+    }
+
+    mouseReleased() {
+        let toolActive = userInterface.constructTool.getToolActive();
+        console.log(toolActive);
+        if(!toolActive)
+            return;
+
+        let indexImpact = false;
+        for(let x = selector.selectionStart; x < selector.selectionStart + round(width/4); x++) {
+            if(
+                x < 0 &&
+                typeof terre.cellules[terre.cellulesLength + x] !== 'undefined' &&
+                terre.cellules[terre.cellulesLength + x].hover===true
+            ) {
+                indexImpact = terre.cellulesLength + x;
+                break;
+            } else if(
+                typeof terre.cellules[x] !== 'undefined' &&
+                terre.cellules[x].hover===true
+            ) {
+                indexImpact = x;
+                break;
+            }
+        }
+        if(indexImpact) {
+            terre.cellules[indexImpact].setPressed(toolActive);
+        }
+    }
+
+    celluleFunction(action) {
         let i = 0;
         for(let x = selector.selectionStart; x < selector.selectionStart + round(width/4); x++) {
             if(x < 0 && typeof terre.cellules[terre.cellulesLength + x] !== 'undefined')
-                terre.cellules[terre.cellulesLength + x].getHover(i);
+                eval('terre.cellules[terre.cellulesLength + x].'+action);
             else if(typeof terre.cellules[x] !== 'undefined')
-                terre.cellules[x].getHover(i);
+                eval('terre.cellules[terre.cellulesLength + x].'+action);
             i++;
             if(i >= 8) { break; }
         }
     }
 
-    mouseReleased() {
-        for(let x = selector.selectionStart; x < selector.selectionStart + round(width/4); x++) {
-            if(x < 0 &&
-                typeof terre.cellules[terre.cellulesLength + x] !== 'undefined' &&
-                terre.cellules[terre.cellulesLength + x].hover===true) {
-                terre.cellules[terre.cellulesLength + x].setPressed();
-                break;
-            } else if(typeof terre.cellules[x] !== 'undefined' &&
-                terre.cellules[x].hover===true) {
-                terre.cellules[x].setPressed();
-                break;
-            }
-
-        }
-    }
 }

@@ -93,7 +93,11 @@ class Cellule {
         }
     }
 
-    setPressed() {
-        this.level += 1;
+    setPressed(tool) {
+        console.log(tool);
+        if(tool.constructName==='ELECT')
+            this.level += 3;
+        else
+            this.level = 0;
     }
 }
