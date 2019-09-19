@@ -32,7 +32,6 @@ class ConstructView {
 
     mouseReleased() {
         let toolActive = userInterface.constructTool.getToolActive();
-        console.log(toolActive);
         if(!toolActive)
             return;
 

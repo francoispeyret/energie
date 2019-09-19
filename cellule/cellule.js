@@ -17,7 +17,7 @@ class Cellule {
 
         this.hover = false;
 
-        this.level = 0;
+        this.celluleConstructObject = null;
     }
 
     show() {
@@ -48,12 +48,11 @@ class Cellule {
         else
             noFill();
         rect(x*this.wZoomed - width / 2, 0, this.wZoomed, 40);
-        fill(0);
-        text(this.level, x*this.wZoomed - width / 2 +15, 15);
 
-        if(this.level > 0) {
-            fill(80);
-            rect(x*this.wZoomed - width / 2 + 30, this.level*-15, this.wZoomed/3,this.level*15+15);
+        if(this.celluleConstructObject) {
+            fill(0);
+            text(this.celluleConstructObject.level, x*this.wZoomed - width / 2 +15, 15);
+            this.celluleConstructObject.showZoomed(x,this.wZoomed);
         }
 
         if(this.hover===true) {
@@ -94,10 +93,16 @@ class Cellule {
     }
 
     setPressed(tool) {
-        console.log(tool);
-        if(tool.constructName==='ELECT')
-            this.level += 3;
-        else
-            this.level = 0;
+        if(this.celluleConstructObject===null) {
+            if(tool.constructName==='TREE') {
+                this.celluleConstructObject =
+                    new TreeConstructObject(tool.constructName);
+            } else if (tool.constructName==='ELECT') {
+                this.celluleConstructObject =
+                    new ElectConstructObject(tool.constructName);
+            }
+        } else {
+            this.celluleConstructObject.levelUp();
+        }
     }
 }
