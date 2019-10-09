@@ -1,5 +1,6 @@
 class Cellule {
-    constructor(type, x, w) {
+
+    constructor(type, x, y, w) {
         this.type = type;
         if(this.type <= 1) {
             this.color = color('#158acf');
@@ -11,6 +12,7 @@ class Cellule {
             this.color = color('#5c4e45');
         }
         this.x = x;
+        this.y = y;
         this.w = w;
 
         this.wZoomed = width / 8;
@@ -30,10 +32,10 @@ class Cellule {
             noStroke()
             noFill();
         }
-        arc(0,0, terre.w,terre.w, radians(this.x*this.w), radians(this.x*this.w+this.w));
-        if(this.level > 0) {
-            stroke(80);
-            for(let l = 1; l <= this.level; l++) {
+        arc(0,0, terre.w*this.y/32,terre.w*this.y/32, radians(this.x*this.w), radians(this.x*this.w+this.w));
+        if(this.celluleConstructObject) {
+            stroke(this.celluleConstructObject.color);
+            for(let l = 1; l <= this.celluleConstructObject.level; l++) {
                 let offset = 10 * l;
                 arc(0,0, terre.w+offset,terre.w+offset, radians(this.x*this.w)+0.02, radians(this.x*this.w+this.w)-0.02);
             }

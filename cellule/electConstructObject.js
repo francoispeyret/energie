@@ -2,6 +2,7 @@ class ElectConstructObject extends CelluleConstructObject {
 
     constructor(name) {
         super(name);
+        this.color = 80;
     }
 
     show() {
@@ -9,7 +10,7 @@ class ElectConstructObject extends CelluleConstructObject {
     }
 
     showZoomed(x,wZoomed) {
-        fill(80);
+        fill(this.color);
         rect(x*wZoomed - width / 2 + 30, this.level*-15, wZoomed/3,this.level*15+15);
     }
 

@@ -1,4 +1,5 @@
 class SelectTool {
+    
     constructor() {
         this.active = false;
         this.hover = false;

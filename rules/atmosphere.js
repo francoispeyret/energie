@@ -1,4 +1,5 @@
 class Atmosphere {
+    
     constructor() {
         this.elements = [
             {
@@ -85,16 +86,10 @@ class Atmosphere {
             offetY++;
         }
         for(let stat of this.stats) {
-            text(stat.affichage + ' ' + stat.stat.getText(), atomCoord.x, atomCoord.y - (offetY * 12));
+            text(stat.stat.getText(), atomCoord.x, atomCoord.y - (offetY * 12));
             offetY++;
         }
 
-        /*text(this.elements["azote"].affichage+' : '+ceil(this.elements["azote"].qte)+'%', 15, height - 86);
-        text(this.elements["oxygen"].affichage+' : '+ceil(this.elements["oxygen"].qte)+'%', 15, height - 74);
-        text(this.elements["argon"].affichage+' : '+ceil(this.elements["argon"].qte)+'%', 15, height - 62);
-        text(this.elements["carbone"].affichage+' : '+ceil(this.elements["carbone"].qte)+'%', 15, height - 50);*/
-        //text(ceil(this.stats["pression"].qte)+''+this.stats["pression"].affichage, 15, height - 38);
-        //text(ceil(this.stats["temperature"].qte)+''+this.stats["temperature"].affichage, 15, height - 26);
     }
 
 }

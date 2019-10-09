@@ -1,4 +1,5 @@
 class ConstructToolOptions {
+    
     constructor() {
         this.visible = false;
         this.active = false;

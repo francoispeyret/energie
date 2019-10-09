@@ -1,4 +1,5 @@
 class ConstructTool {
+    
     constructor() {
         this.active = false;
         this.hover = false;

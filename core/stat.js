@@ -1,4 +1,5 @@
 class Stat {
+    
     constructor(value,max,unit) {
         this.value = value;
         this.max = max;

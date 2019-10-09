@@ -1,4 +1,5 @@
 class Etoile {
+    
     constructor() {
         this.x = random(-100,100)/100;
         this.y = random(-100,100)/100;

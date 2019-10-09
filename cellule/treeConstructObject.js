@@ -2,14 +2,11 @@ class TreeConstructObject extends CelluleConstructObject {
 
     constructor(name) {
         super(name);
-    }
-
-    show() {
-
+        this.color = color('#7bb037');
     }
 
     showZoomed(x,wZoomed) {
-        fill(50,255,30);
+        fill(this.color);
         rect(x*wZoomed - width / 2 + 30, this.level*-15, wZoomed/3,this.level*15+15);
     }
 

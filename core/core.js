@@ -7,7 +7,7 @@ let soleil;
 let selector;
 let constructView;
 
-const debug = true;
+const debug = false;
 
 let view = {
     zoom: false,

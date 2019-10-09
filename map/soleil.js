@@ -1,4 +1,5 @@
 class Soleil {
+    
     constructor() {
         this.w = 50;
         this.color = color('#fff394');

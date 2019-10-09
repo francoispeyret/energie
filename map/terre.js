@@ -1,4 +1,5 @@
 class Terre {
+
     constructor() {
         this.w = width / 2.5;
         this.cellules = [];
@@ -8,15 +9,15 @@ class Terre {
                 new Cellule(
                     floor(random(0,5)),
                     x,
+                    32,
                     360/this.cellulesLength
                 );
         }
-        this.color = color('#5c442e');
     }
 
     show() {
         ellipseMode(CENTER);
-        atmosphere.show(this.w);
+        atmosphere.show(this.w*1.5);
         fill(0);
         ellipse(0,0,this.w,this.w);
         fill('#3d2d25');
