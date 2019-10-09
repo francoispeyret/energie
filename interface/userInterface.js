@@ -35,8 +35,8 @@ class UserInterface {
         fill(30);
         strokeWeight(0.5);
         stroke(0);
-        textAlign(CENTER);
-        text(word, x+w/2, y +12 );
+        textAlign(LEFT);
+        text(word, x+2, y +12 );
     }
 
     mouseMoved() {

@@ -107,4 +107,10 @@ class Cellule {
             this.celluleConstructObject.levelUp();
         }
     }
+
+    canBeConstructed() {
+        if(this.type > 1) {
+            return true;
+        }
+    }
 }

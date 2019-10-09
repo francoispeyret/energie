@@ -1,5 +1,5 @@
 class ConstructToolOptions {
-    
+
     constructor() {
         this.visible = false;
         this.active = false;
@@ -78,6 +78,15 @@ class ConstructToolOptions {
                 this.active = true;
             }
         }
+    }
+
+    getActiveName() {
+        for(let opt of this.options) {
+            if(opt.active===true) {
+                return opt.constructName;
+            }
+        }
+        return false;
     }
 
     cancelTools() {

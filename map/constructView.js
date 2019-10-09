@@ -1,5 +1,5 @@
 class ConstructView {
-    
+
     constructor() {
 
     }
@@ -54,7 +54,19 @@ class ConstructView {
             }
         }
         if(indexImpact) {
-            terre.cellules[indexImpact].setPressed(toolActive);
+            const indexImpactObject = terre.cellules[indexImpact].celluleConstructObject;
+            if(
+                indexImpactObject === null ||
+                (
+                    indexImpactObject &&
+                    userInterface.constructTool.toolOptions.getActiveName() === indexImpactObject.name
+                )
+            ) {
+                if(terre.cellules[indexImpact].canBeConstructed()) {
+                    terre.cellules[indexImpact].setPressed(toolActive);
+                }
+            }
+
         }
     }
 
